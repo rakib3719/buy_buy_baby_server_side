@@ -6,5 +6,5 @@ dotenv.config();
 
 app.listen(port, ()=>{
 
-    console.log(`babycare server runnig on ${port }`);
+    console.log(`Hello Baby server runnig on ${port }`);
 })
