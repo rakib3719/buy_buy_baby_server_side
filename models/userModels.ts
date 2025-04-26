@@ -1,12 +1,13 @@
 import mongoose, { Schema, Document } from "mongoose"
 
-type Role = "doctor" | "admin" | "user"
+type Role = "doctor" | "admin" | "user" | "manager" | "modaretor"
 interface User extends Document{
 name:string,
 email?:string,
 mobileNumber?: any,
 role:Role,
-imgUrl?:string
+imgUrl?:string,
+password:string
 }
 
 
@@ -25,15 +26,21 @@ email:{
 mobileNumber:{
     type:Schema.Types.Mixed,
     required: false,
+    unique:true
 },
 imgUrl:{
     type:String,
     required: false,
 },
+password:{
+
+    type:String,
+    required:true
+},
 role:{
     type:String,
     required:true,
-    enum: ["doctor", "admin" ,  "user"]
+    enum: ["doctor", "admin" ,  "user", "manager", "modaretor"]
 }
 
 })

@@ -5,7 +5,11 @@ import connectDB from './configure/db'
 import dotenv from 'dotenv'
 import otpRoute from './routes/otpRoute'
 import doctorRoute from './routes/doctorRouter'
-import imageUploadRoute from './routes/imageUploadRoute'
+
+import productsRoute from './routes/productsRouter'
+import productsReview from './routes/productsReviewRoutes'
+import cart from './routes/cartRouter'
+import order from './routes/orderRouter'
 
 const app:Application = express()
 
@@ -18,7 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/doctor', doctorRoute)
 app.use('/user', userRoute)
 app.use('/otp', otpRoute)
-app.use('/img',imageUploadRoute)
+app.use('/products', productsRoute)
+app.use('/products-review', productsReview)
+app.use('/cart', cart)
+app.use('/order', order)
 connectDB()
 
 export default app;
